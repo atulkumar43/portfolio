@@ -1120,6 +1120,18 @@
           <span class="project-arrow">↗</span>
         </div>
 
+           <div class="project-item interactive" onclick="openLightbox('pulse')">
+          <div class="project-video-thumb">
+            <video src="compressed_portfolio.mp4" autoplay loop muted playsinline></video>
+          </div>
+          <div class="project-info">
+            <div class="project-name">Pressure & Release <span class="project-tag">Interactive</span></div>
+            <div class="project-desc">An interactive generative performance driven by sensor data. Utilizing an Arduino Uno and TouchDesigner, 
+              the work translates physical tilt into the real-time manipulation of a live particle system.</div>
+          </div>
+          <span class="project-arrow">↗</span>
+        </div>
+
         <div class="project-item interactive" onclick="openLightbox('mesh')">
           <div class="project-video-thumb">
             <video src="Screen Recording 2026-03-29 121554.mp4" autoplay loop muted playsinline></video>
@@ -1249,6 +1261,12 @@
         desc: 'An L-system tree that grows and branches in real time, its complexity controlled by the distance of a hand pinch gesture.',
         tools: ['TouchDesigner', 'Mediapipe', 'Hand Tracking'],
         videoSrc: 'Screen Recording 2026-03-29 121554.mp4'
+      },
+        mesh: {
+        title: 'Pressure & Release',
+        desc: 'An interactive generative performance driven by sensor data. Utilizing an Arduino Uno and TouchDesigner, the work translates physical tilt into the real-time manipulation of a live particle system.',
+        tools: ['TouchDesigner', 'Tilt Sensor', 'Arduino'],
+        videoSrc: 'compressed_portfolio.mp4'
       }
     };
 
