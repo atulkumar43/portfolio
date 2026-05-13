@@ -1086,6 +1086,18 @@
           <span class="project-arrow">↗</span>
         </div>
 
+        <div class="project-item interactive" onclick="openLightbox('piano')">
+          <div class="project-video-thumb">
+            <video src="Screen Recording 2026-05-13 111753.mp4" autoplay loop muted playsinline></video>
+          </div>
+          <div class="project-info">
+            <div class="project-name">Pressplay<span class="project-tag">Audio Visual</span></div>
+            <div class="project-desc">A TouchDesigner instrument that gives live-coded music a body. Every note fired in Strudel physically depresses a 
+              3D piano key, turning abstract pattern syntax into something you can watch perform.</div>
+          </div>
+          <span class="project-arrow">↗</span>
+        </div>
+
            <div class="project-item interactive" onclick="openLightbox('pressure')">
           <div class="project-video-thumb">
             <video src="compressed_portfolio.mp4" autoplay loop muted playsinline></video>
@@ -1131,27 +1143,6 @@
           </div>
           <span class="project-arrow">↗</span>
         </div>
-<a href="https://medium.com/@atulkumarshukla458/vinci-labs-branproject-eeef83f1b967" target="_blank"
-          class="project-item">
-          <div class="project-icon">✨</div>
-          <div class="project-info">
-            <div class="project-name">Vinci Labs <span class="project-tag">Branding</span></div>
-            <div class="project-desc">Comprehensive brand identity and visual strategy for Vinci Labs</div>
-          </div>
-          <span class="project-arrow">↗</span>
-        </a>
-
-          <a href="https://medium.com/@atulkumarshukla458/ek-design-furniture-project-e16cfd8c62c9" target="_blank"
-          class="project-item">
-          <div class="project-icon">👁️</div>
-          <div class="project-info">
-            <div class="project-name">Ek design furniture<span class="project-tag">Branding</span></div>
-            <div class="project-desc">Comprehensive brand identity and visual strategy for Ek design furniture</div>
-          </div>
-          <span class="project-arrow">↗</span>
-        </a>
-      </div>
-    </section>
 
     <!-- Lightbox Modal -->
     <div class="lightbox-overlay" id="lightbox" onclick="closeLightboxOutside(event)">
@@ -1251,6 +1242,13 @@
         desc: 'A real-time face-tracked digital mask that merges the human form with a Blender-sculpted geometry, rendered live in TouchDesigner.',
         tools: ['TouchDesigner', 'Blender', 'Face Tracking'],
         videoSrc: 'Screen Recording 2026-02-09 224646.mp4'
+      },
+       piano: {
+        title: 'Pressplay',
+        desc: 'A TouchDesigner instrument that gives live-coded music a body. Every note fired in Strudel
+          physically depresses a 3D piano key, turning abstract pattern syntax into something you can watch perform.',
+        tools: ['Creative Coding', 'Strudel', 'Audio Visual'],
+        videoSrc: 'Screen Recording 2026-05-13 111753.mp4'
       },
       mesh: {
         title: 'Arborithm',
