@@ -1109,6 +1109,17 @@
           <span class="project-arrow">↗</span>
         </div>
 
+        <div class="project-item interactive" onclick="openLightbox('UNRESOLVED')">
+          <div class="project-video-thumb">
+            <video src="Screen Recording 2026-06-15 215716.mp4" autoplay loop muted playsinline></video>
+          </div>
+          <div class="project-info">
+            <div class="project-name">UNRESOLVED<span class="project-tag">Gesture-Interaction</span></div>
+            <div class="project-desc">Real-time face pixelation controlled by hand tracking. Open hands to pixelate your face; pinch to restore clarity. Built in TouchDesigner with MediaPipe hand tracking.</div>
+          </div>
+          <span class="project-arrow">↗</span>
+        </div>
+
         <div class="project-item interactive" onclick="openLightbox('generative')">
           <div class="project-video-thumb">
             <video src="generative_visuals (1) (1).mp4" autoplay loop muted playsinline></video>
@@ -1290,6 +1301,12 @@
         desc: 'A real-time GLSL shader effect that transforms live camera input into a fluid, water-distorted portrait. Using optical flow to track motion and a custom wave ripple displacement map, the subject appears submerged beneath a shifting, luminous surface, skin and light bending like reflections on the underside of water.',
         tools: ['TouchDesigner', 'GLSL Shader', 'Live Cam'],
         videoSrc: 'Screen Recording 2026-05-31 092536.mp4'
+      },
+      UNRESOLVED: {
+        title: 'UNRESOLVED',
+        desc: 'Real-time face pixelation controlled by hand tracking. Open hands to pixelate your face; pinch to restore clarity. Built in TouchDesigner with MediaPipe hand tracking.',
+        tools: ['TouchDesigner', 'Face-tracking', 'Real-time-video'],
+        videoSrc: 'Screen Recording 2026-06-15 215716.mp4'
       },
        generative: {
         title: 'Emergent States',
