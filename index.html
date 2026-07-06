@@ -252,6 +252,40 @@
       border-bottom: 1px solid var(--border);
     }
 
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+
+    .filter-btn {
+      display: inline-flex;
+      align-items: center;
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 4px 12px;
+      cursor: pointer;
+      color: var(--muted);
+      font-size: 12.5px;
+      font-family: 'DM Sans', sans-serif;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .filter-btn:hover {
+      color: var(--text);
+      border-color: #c8c2ba;
+    }
+
+    .filter-btn.active {
+      color: var(--text);
+      border-color: var(--text);
+      background: white;
+      font-weight: 500;
+    }
+
     .project-list {
       display: flex;
       flex-direction: column;
@@ -266,7 +300,22 @@
       border-bottom: 1px solid var(--border);
       text-decoration: none;
       color: var(--text);
-      transition: opacity 0.15s;
+      transition: opacity 0.25s ease, transform 0.25s ease;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .project-item.hidden {
+      display: none !important;
+    }
+
+    .project-item:not(.visible) {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+
+    .project-item.last-visible {
+      border-bottom: none;
     }
 
     .project-item:last-child {
@@ -835,6 +884,16 @@
         flex-wrap: wrap;
         gap: 10px;
       }
+
+      .filter-bar {
+        gap: 6px;
+        margin-bottom: 20px;
+      }
+
+      .filter-btn {
+        padding: 3px 10px;
+        font-size: 11.5px;
+      }
     }
 
     /* ── Custom cursor ── */
@@ -1068,12 +1127,21 @@
     </section>
 
     <!-- Projects -->
+    <!-- Projects -->
     <section class="projects" id="projects">
       <p class="section-label" data-text="Projects">Projects</p>
+      
+      <div class="filter-bar">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="generative-visuals">Generative Visuals</button>
+        <button class="filter-btn" data-filter="physical-computing">Physical Computing</button>
+        <button class="filter-btn" data-filter="mediapipe">Mediapipe</button>
+      </div>
+
       <div class="project-list">
 
         <!-- TouchDesigner Projects — click to open lightbox -->
-        <div class="project-item interactive" onclick="openLightbox('pulse')">
+        <div class="project-item interactive visible" data-category="mediapipe" onclick="openLightbox('pulse')">
           <div class="project-video-thumb">
             <video src="Screen Recording 2026-02-09 224646.mp4" autoplay loop muted playsinline></video>
           </div>
@@ -1085,7 +1153,7 @@
           <span class="project-arrow">↗</span>
         </div>
 
-        <div class="project-item interactive" onclick="openLightbox('bubble')">
+        <div class="project-item interactive visible" data-category="mediapipe" onclick="openLightbox('bubble')">
           <div class="project-video-thumb">
             <video src="bubble (1) (1).mp4" autoplay loop muted playsinline></video>
           </div>
@@ -1097,7 +1165,7 @@
           <span class="project-arrow">↗</span>
         </div>
 
-         <div class="project-item interactive" onclick="openLightbox('Submerged')">
+         <div class="project-item interactive visible" data-category="generative-visuals" onclick="openLightbox('Submerged')">
           <div class="project-video-thumb">
             <video src="Screen Recording 2026-05-31 092536.mp4" autoplay loop muted playsinline></video>
           </div>
@@ -1109,7 +1177,7 @@
           <span class="project-arrow">↗</span>
         </div>
 
-        <div class="project-item interactive" onclick="openLightbox('UNRESOLVED')">
+        <div class="project-item interactive visible" data-category="mediapipe" onclick="openLightbox('UNRESOLVED')">
           <div class="project-video-thumb">
             <video src="Screen Recording 2026-06-15 215716.mp4" autoplay loop muted playsinline></video>
           </div>
@@ -1120,7 +1188,7 @@
           <span class="project-arrow">↗</span>
         </div>
 
-        <div class="project-item interactive" onclick="openLightbox('generative')">
+        <div class="project-item interactive visible" data-category="generative-visuals" onclick="openLightbox('generative')">
           <div class="project-video-thumb">
             <video src="generative_visuals (1) (1).mp4" autoplay loop muted playsinline></video>
           </div>
@@ -1131,7 +1199,7 @@
           <span class="project-arrow">↗</span>
         </div>
 
-        <div class="project-item interactive" onclick="openLightbox('piano')">
+        <div class="project-item interactive visible" data-category="generative-visuals" onclick="openLightbox('piano')">
           <div class="project-video-thumb">
             <video src="Screen Recording 2026-05-13 111753.mp4" autoplay loop muted playsinline></video>
           </div>
@@ -1143,7 +1211,7 @@
           <span class="project-arrow">↗</span>
         </div>
 
-           <div class="project-item interactive" onclick="openLightbox('pressure')">
+           <div class="project-item interactive visible" data-category="physical-computing" onclick="openLightbox('pressure')">
           <div class="project-video-thumb">
             <video src="compressed_portfolio.mp4" autoplay loop muted playsinline></video>
           </div>
@@ -1155,7 +1223,7 @@
           <span class="project-arrow">↗</span>
         </div>
 
-        <div class="project-item interactive" onclick="openLightbox('AV')">
+        <div class="project-item interactive visible" data-category="generative-visuals" onclick="openLightbox('AV')">
           <div class="project-video-thumb">
             <video src="techno visuals (1).mp4" autoplay loop muted playsinline></video>
           </div>
@@ -1167,7 +1235,7 @@
           <span class="project-arrow">↗</span>
         </div>
 
-        <div class="project-item interactive" onclick="openLightbox('mesh')">
+        <div class="project-item interactive visible" data-category="mediapipe" onclick="openLightbox('mesh')">
           <div class="project-video-thumb">
             <video src="Screen Recording 2026-03-29 121554.mp4" autoplay loop muted playsinline></video>
             <!-- Replace src with your actual video file e.g. src="mesh-loop.mp4" -->
@@ -1518,6 +1586,69 @@
         isPlaying = false;
       }
     }
+
+    /* ── Project Filtering ── */
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const projectItems = document.querySelectorAll('.project-item');
+
+    function updateLastVisible() {
+      projectItems.forEach(item => item.classList.remove('last-visible'));
+      const visibleItems = Array.from(projectItems).filter(item => !item.classList.contains('hidden'));
+      if (visibleItems.length > 0) {
+        visibleItems[visibleItems.length - 1].classList.add('last-visible');
+      }
+    }
+
+    // Set initial last visible item border removal
+    updateLastVisible();
+
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Remove active class from all buttons
+        filterButtons.forEach(b => b.classList.remove('active'));
+        // Add active class to clicked button
+        btn.classList.add('active');
+
+        const filterValue = btn.getAttribute('data-filter');
+
+        projectItems.forEach(item => {
+          const categories = item.getAttribute('data-category') || '';
+          const categoryList = categories.split(' ');
+          const isMatch = filterValue === 'all' || categoryList.includes(filterValue);
+
+          if (isMatch) {
+            // Remove hidden first, so it occupies space and can transition in
+            item.classList.remove('hidden');
+            // Trigger reflow to ensure the browser registers the removal of display: none
+            void item.offsetWidth;
+            item.classList.add('visible');
+          } else {
+            item.classList.remove('visible');
+            
+            // Wait for opacity transition to finish, then hide from layout
+            const handleTransitionEnd = (e) => {
+              if (e.propertyName === 'opacity' && !item.classList.contains('visible')) {
+                item.classList.add('hidden');
+                updateLastVisible();
+                item.removeEventListener('transitionend', handleTransitionEnd);
+              }
+            };
+            item.addEventListener('transitionend', handleTransitionEnd);
+            
+            // Safety timeout in case transitionend does not fire
+            setTimeout(() => {
+              if (!item.classList.contains('visible')) {
+                item.classList.add('hidden');
+                updateLastVisible();
+              }
+            }, 250);
+          }
+        });
+        
+        // Immediate update for visible items to adjust borders during transition
+        updateLastVisible();
+      });
+    });
   </script>
 </body>
 
