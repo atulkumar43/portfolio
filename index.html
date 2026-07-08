@@ -1133,7 +1133,7 @@
       
       <div class="filter-bar">
         <button class="filter-btn active" data-filter="all">All</button>
-        <button class="filter-btn" data-filter="generative-visuals">Generative Visuals</button>
+        <button class="filter-btn" data-filter="generative-visuals">Visuals</button>
         <button class="filter-btn" data-filter="physical-computing">Physical Computing</button>
         <button class="filter-btn" data-filter="mediapipe">Mediapipe</button>
       </div>
@@ -1172,6 +1172,18 @@
             <div class="project-name">I made a bubble<span class="project-tag">GLSL Shader</span></div>
             <div class="project-desc">A real-time iridescent bubble shader built in GLSL — simulating the thin-film light
               interference and translucency of a soap bubble on a 3D sphere.</div>
+          </div>
+          <span class="project-arrow">↗</span>
+        </div>
+
+        <div class="project-item interactive visible" data-category="generative-visuals" onclick="openLightbox('cat')">
+          <div class="project-video-thumb">
+            <video src="cat_visual_insta.mp4" autoplay loop muted playsinline></video>
+          </div>
+          <div class="project-info">
+            <div class="project-name">Pixel Purr<span class="project-tag">ASCII Art</span></div>
+            <div class="project-desc">A TouchDesigner pipeline that segments a cat video using Nvidia's background removal, then re-renders the silhouette as a 
+              dense field of glowing ASCII characters — turning a background-removal tool into a generative texture engine.</div>
           </div>
           <span class="project-arrow">↗</span>
         </div>
@@ -1401,6 +1413,12 @@
         desc: 'A compilation of generative visuals I made in Hydra Video Synth.',
         tools: ['Hydra Video Synth', 'Creative Coding', 'Visuals'],
         videoSrc: 'portfolio_visual.3 (1).mp4'
+      },
+      cat: {
+        title: 'Pixel Purr',
+        desc: 'A TouchDesigner pipeline that segments a cat video using Nvidia's background removal AI, then re-renders the silhouette a dense field of glowing ASCII characters — turning a background-removal tool into a generative texture engine.',
+        tools: ['Creative Visuals', 'Real-Time Video Processing'],
+        videoSrc: 'cat_visual_insta.mp4'
       },
       generative_visual2: {
         title: 'Generative Visuals',
