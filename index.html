@@ -485,6 +485,14 @@
       transition: transform 0.25s ease;
     }
 
+    .lightbox-box.portrait {
+      max-width: 380px;
+    }
+
+    .lightbox-box.portrait .lightbox-video-wrap {
+      aspect-ratio: 9/16;
+    }
+
     .lightbox-overlay.active .lightbox-box {
       transform: translateY(0);
     }
@@ -763,112 +771,7 @@
       animation-delay: 0.22s;
     }
 
-    /* ── Audio Toggle ── */
-    .audio-toggle {
-      display: flex;
-      align-items: center;
-      gap: 5px;
-      background: none;
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 3px 10px 3px 7px;
-      cursor: pointer;
-      color: var(--muted);
-      font-size: 12px;
-      font-family: 'DM Sans', sans-serif;
-      transition: color 0.2s, border-color 0.2s, background 0.2s;
-      white-space: nowrap;
-    }
 
-    .audio-toggle:hover {
-      color: var(--text);
-      border-color: #c8c2ba;
-    }
-
-    .audio-toggle.playing {
-      color: var(--text);
-      border-color: #b0a898;
-      background: white;
-    }
-
-    .audio-icon {
-      display: flex;
-      align-items: center;
-    }
-
-    .audio-label {
-      font-size: 12px;
-      font-weight: 400;
-      letter-spacing: 0.01em;
-    }
-
-    /* Animated bars — only visible when playing */
-    .audio-bars {
-      display: none;
-      align-items: flex-end;
-      gap: 2px;
-      height: 10px;
-      margin-left: 1px;
-    }
-
-    .audio-toggle.playing .audio-bars {
-      display: flex;
-    }
-
-    .audio-toggle.playing .audio-label {
-      display: none;
-    }
-
-    .audio-toggle.playing #iconMute {
-      display: none;
-    }
-
-    .audio-toggle.playing #iconSound {
-      display: block;
-    }
-
-    .bar {
-      display: block;
-      width: 2px;
-      border-radius: 1px;
-      background: var(--text);
-      animation: barDance 1.1s ease-in-out infinite alternate;
-      animation-delay: calc(var(--d) * 0.18s);
-      transform-origin: bottom;
-    }
-
-    .bar:nth-child(1) {
-      height: 4px;
-    }
-
-    .bar:nth-child(2) {
-      height: 8px;
-    }
-
-    .bar:nth-child(3) {
-      height: 6px;
-    }
-
-    .bar:nth-child(4) {
-      height: 10px;
-    }
-
-    @keyframes barDance {
-      0% {
-        transform: scaleY(0.3);
-        opacity: 0.4;
-      }
-
-      50% {
-        transform: scaleY(1);
-        opacity: 1;
-      }
-
-      100% {
-        transform: scaleY(0.5);
-        opacity: 0.6;
-      }
-    }
 
     /* ── Responsive ── */
     @media (max-width: 520px) {
@@ -896,53 +799,7 @@
       }
     }
 
-    /* ── Custom cursor ── */
-    * {
-      cursor: none !important;
-    }
 
-    .cursor-dot {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--text);
-      pointer-events: none;
-      z-index: 9999;
-      transform: translate(-50%, -50%);
-      transition: transform 0.08s ease, opacity 0.2s;
-      will-change: transform;
-    }
-
-    .cursor-ring {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      border: 1px solid rgba(26, 26, 26, 0.35);
-      pointer-events: none;
-      z-index: 9998;
-      transform: translate(-50%, -50%);
-      transition: width 0.2s ease, height 0.2s ease, border-color 0.2s, opacity 0.2s;
-      will-change: transform;
-    }
-
-    /* Expand ring on hover over links/buttons */
-    a:hover~.cursor-ring,
-    button:hover~.cursor-ring {
-      width: 40px;
-      height: 40px;
-    }
-
-    .cursor-ring.expanded {
-      width: 40px;
-      height: 40px;
-      border-color: rgba(26, 26, 26, 0.55);
-    }
 
     /* ── Grain overlay ── */
     body::after {
@@ -1021,8 +878,7 @@
 
 <body>
 
-  <div class="cursor-dot" id="cursorDot"></div>
-  <div class="cursor-ring" id="cursorRing"></div>
+
 
   <div class="page">
 
@@ -1032,35 +888,6 @@
       <ul class="nav-links">
         <li><a href="#projects">projects</a></li>
         <li><a href="#about">about</a></li>
-        <li class="nav-divider">|</li>
-        <li>
-          <button class="audio-toggle" id="audioToggle" onclick="toggleAudio()" title="Toggle ambient sound">
-            <span class="audio-icon" id="audioIcon">
-              <svg id="iconSound" width="14" height="14" viewBox="0 0 14 14" fill="none"
-                xmlns="http://www.w3.org/2000/svg" style="display:none">
-                <path d="M2 4.5H4.5L7.5 2V12L4.5 9.5H2V4.5Z" stroke="currentColor" stroke-width="1.1"
-                  stroke-linejoin="round" />
-                <path d="M9.5 4.5C10.5 5.2 11 6 11 7C11 8 10.5 8.8 9.5 9.5" stroke="currentColor" stroke-width="1.1"
-                  stroke-linecap="round" />
-                <path d="M10.5 2.5C12.2 3.7 13 5.3 13 7C13 8.7 12.2 10.3 10.5 11.5" stroke="currentColor"
-                  stroke-width="1.1" stroke-linecap="round" />
-              </svg>
-              <svg id="iconMute" width="14" height="14" viewBox="0 0 14 14" fill="none"
-                xmlns="http://www.w3.org/2000/svg">
-                <path d="M2 4.5H4.5L7.5 2V12L4.5 9.5H2V4.5Z" stroke="currentColor" stroke-width="1.1"
-                  stroke-linejoin="round" />
-                <path d="M10 5L13 9M13 5L10 9" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" />
-              </svg>
-            </span>
-            <span class="audio-label" id="audioLabel">sound</span>
-            <span class="audio-bars" id="audioBars">
-              <span class="bar" style="--d:0"></span>
-              <span class="bar" style="--d:1"></span>
-              <span class="bar" style="--d:2"></span>
-              <span class="bar" style="--d:3"></span>
-            </span>
-          </button>
-        </li>
       </ul>
     </nav>
 
@@ -1126,7 +953,6 @@
       </ul>
     </section>
 
-    <!-- Projects -->
     <!-- Projects -->
     <section class="projects" id="projects">
       <p class="section-label" data-text="Projects">Projects</p>
@@ -1340,33 +1166,7 @@
   </div>
 
   <script>
-    /* ── Custom Cursor ── */
-    const dot = document.getElementById('cursorDot');
-    const ring = document.getElementById('cursorRing');
-    let ringX = 0, ringY = 0, mouseX = 0, mouseY = 0;
 
-    document.addEventListener('mousemove', e => {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
-      dot.style.left = mouseX + 'px';
-      dot.style.top = mouseY + 'px';
-    });
-
-    (function animateRing() {
-      ringX += (mouseX - ringX) * 0.12;
-      ringY += (mouseY - ringY) * 0.12;
-      ring.style.left = ringX + 'px';
-      ring.style.top = ringY + 'px';
-      requestAnimationFrame(animateRing);
-    })();
-
-    document.querySelectorAll('a, button, .project-item').forEach(el => {
-      el.addEventListener('mouseenter', () => ring.classList.add('expanded'));
-      el.addEventListener('mouseleave', () => ring.classList.remove('expanded'));
-    });
-
-    document.addEventListener('mouseleave', () => { dot.style.opacity = '0'; ring.style.opacity = '0'; });
-    document.addEventListener('mouseenter', () => { dot.style.opacity = '1'; ring.style.opacity = '1'; });
 
     /* ── Hero Image Tilt ── */
     const heroWrap = document.querySelector('.hero-img-wrap');
@@ -1410,9 +1210,10 @@
       },
       cat: {
         title: 'Pixel Purr',
-        desc: 'Cat video, meet code. This TouchDesigner project uses Nvidia's background remover to isolate a cat's silhouette in real time, then fills it with a shimmering layer of ASCII characters blurring the line between a living creature and its digital texture.',
+        desc: "Cat video, meet code. This TouchDesigner project uses Nvidia's background remover to isolate a cat's silhouette in real time, then fills it with a shimmering layer of ASCII characters blurring the line between a living creature and its digital texture.",
         tools: ['Creative Visual', 'Real-Time Video Processing', 'ASCII'],
-        videoSrc: 'bubble (1) (1).mp4'
+        videoSrc: 'cat_visual_insta.mp4',
+        aspectRatio: 'portrait'
       },
        generative_visual1: {
         title: 'Generative Visuals',
@@ -1489,6 +1290,16 @@
 
       const toolsEl = document.getElementById('lightbox-tools');
       toolsEl.innerHTML = p.tools.map(t => `<span class="tool-chip">${t}</span>`).join('');
+
+      const lightboxBox = document.querySelector('.lightbox-box');
+      if (lightboxBox) {
+        if (p.aspectRatio === 'portrait') {
+          lightboxBox.classList.add('portrait');
+        } else {
+          lightboxBox.classList.remove('portrait');
+        }
+      }
+
       document.getElementById('lightbox').classList.add('active');
       document.body.style.overflow = 'hidden';
     }
@@ -1498,6 +1309,11 @@
       if (videoEl) videoEl.pause();
       document.getElementById('lightbox').classList.remove('active');
       document.body.style.overflow = '';
+
+      const lightboxBox = document.querySelector('.lightbox-box');
+      if (lightboxBox) {
+        lightboxBox.classList.remove('portrait');
+      }
     }
 
     function closeLightboxOutside(e) {
@@ -1508,152 +1324,7 @@
       if (e.key === 'Escape') closeLightbox();
     });
 
-    /* ── Generative Ambient Drone Engine ── */
-    let audioCtx = null;
-    let masterGain = null;
-    let nodes = [];
-    let isPlaying = false;
-    let fadeInterval = null;
 
-    // Drone config — a stack of detuned oscillators + filtered noise
-    const DRONE_NOTES = [
-      { freq: 55.0, type: 'sine', gain: 0.18 }, // A1 — root
-      { freq: 82.4, type: 'sine', gain: 0.12 }, // E2 — fifth
-      { freq: 110.0, type: 'sine', gain: 0.10 }, // A2 — octave
-      { freq: 55.3, type: 'sine', gain: 0.08 }, // A1 slightly detuned — chorus
-      { freq: 164.8, type: 'sine', gain: 0.06 }, // E3 — upper fifth
-      { freq: 220.0, type: 'triangle', gain: 0.04 }, // A3 — air
-    ];
-
-    function buildDrone(ctx) {
-      const out = [];
-
-      // Low-pass filtered noise bed
-      const bufSize = ctx.sampleRate * 2;
-      const noiseBuffer = ctx.createBuffer(1, bufSize, ctx.sampleRate);
-      const data = noiseBuffer.getChannelData(0);
-      for (let i = 0; i < bufSize; i++) data[i] = Math.random() * 2 - 1;
-
-      const noiseSource = ctx.createBufferSource();
-      noiseSource.buffer = noiseBuffer;
-      noiseSource.loop = true;
-
-      const noiseFilter = ctx.createBiquadFilter();
-      noiseFilter.type = 'lowpass';
-      noiseFilter.frequency.value = 180;
-      noiseFilter.Q.value = 0.8;
-
-      const noiseGain = ctx.createGain();
-      noiseGain.gain.value = 0.025;
-
-      noiseSource.connect(noiseFilter);
-      noiseFilter.connect(noiseGain);
-      noiseGain.connect(masterGain);
-      noiseSource.start();
-      out.push(noiseSource, noiseFilter, noiseGain);
-
-      // Oscillator stack
-      DRONE_NOTES.forEach(({ freq, type, gain: gVal }, i) => {
-        const osc = ctx.createOscillator();
-        osc.type = type;
-        osc.frequency.value = freq;
-
-        // Slow LFO for each oscillator — subtle pitch drift
-        const lfo = ctx.createOscillator();
-        lfo.type = 'sine';
-        lfo.frequency.value = 0.04 + i * 0.011; // very slow
-        const lfoGain = ctx.createGain();
-        lfoGain.gain.value = 0.18 + i * 0.05;
-        lfo.connect(lfoGain);
-        lfoGain.connect(osc.frequency);
-        lfo.start();
-
-        // Amplitude LFO — slow breathing
-        const ampLfo = ctx.createOscillator();
-        ampLfo.type = 'sine';
-        ampLfo.frequency.value = 0.07 + i * 0.013;
-        const ampLfoGain = ctx.createGain();
-        ampLfoGain.gain.value = gVal * 0.3;
-        ampLfo.connect(ampLfoGain);
-
-        const oscGain = ctx.createGain();
-        oscGain.gain.value = gVal;
-        ampLfoGain.connect(oscGain.gain);
-        ampLfo.start();
-
-        // Slight reverb via convolver approximation (all-pass chain)
-        const allpass1 = ctx.createBiquadFilter();
-        allpass1.type = 'allpass';
-        allpass1.frequency.value = 700;
-
-        osc.connect(oscGain);
-        oscGain.connect(allpass1);
-        allpass1.connect(masterGain);
-        osc.start();
-
-        out.push(osc, lfo, lfoGain, ampLfo, ampLfoGain, oscGain, allpass1);
-      });
-
-      return out;
-    }
-
-    function startAudio() {
-      if (!audioCtx) {
-        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-        masterGain = audioCtx.createGain();
-        masterGain.gain.value = 0;
-        masterGain.connect(audioCtx.destination);
-      }
-
-      if (audioCtx.state === 'suspended') audioCtx.resume();
-
-      if (nodes.length === 0) nodes = buildDrone(audioCtx);
-
-      // Fade in
-      clearInterval(fadeInterval);
-      const target = 0.55;
-      const step = 0.012;
-      fadeInterval = setInterval(() => {
-        const cur = masterGain.gain.value;
-        if (cur < target - step) {
-          masterGain.gain.value = Math.min(cur + step, target);
-        } else {
-          masterGain.gain.value = target;
-          clearInterval(fadeInterval);
-        }
-      }, 30);
-    }
-
-    function stopAudio() {
-      if (!masterGain) return;
-      clearInterval(fadeInterval);
-      const step = 0.012;
-      fadeInterval = setInterval(() => {
-        const cur = masterGain.gain.value;
-        if (cur > step) {
-          masterGain.gain.value = Math.max(cur - step, 0);
-        } else {
-          masterGain.gain.value = 0;
-          clearInterval(fadeInterval);
-          // Tear down nodes to reset cleanly
-          nodes.forEach(n => { try { n.stop && n.stop(); n.disconnect && n.disconnect(); } catch (e) { } });
-          nodes = [];
-        }
-      }, 30);
-    }
-
-    function toggleAudio() {
-      const btn = document.getElementById('audioToggle');
-      if (!isPlaying) {
-        startAudio();
-        btn.classList.add('playing');
-        isPlaying = true;
-      } else {
-        stopAudio();
-        btn.classList.remove('playing');
-        isPlaying = false;
-      }
-    }
 
     /* ── Project Filtering ── */
     const filterButtons = document.querySelectorAll('.filter-btn');
