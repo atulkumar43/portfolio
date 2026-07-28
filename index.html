@@ -962,6 +962,7 @@
         <button class="filter-btn" data-filter="generative-visuals">Visuals</button>
         <button class="filter-btn" data-filter="physical-computing">Physical Computing</button>
         <button class="filter-btn" data-filter="mediapipe">Mediapipe</button>
+        <button class="filter-btn" data-filter="sound">Sound Experiments</button>
       </div>
 
       <div class="project-list">
@@ -1066,6 +1067,17 @@
           <div class="project-info">
             <div class="project-name">Emergent States<span class="project-tag">Real-Time Visuals</span></div>
             <div class="project-desc">A series of four generative studies built in TouchDesigner, exploring how simple computational rules give rise to complex, living visual systems.</div>
+          </div>
+          <span class="project-arrow">↗</span>
+        </div>
+
+        <div class="project-item interactive visible" data-category="sound" onclick="openLightbox('VCV')">
+          <div class="project-video-thumb">
+            <video src="ambient (2).mp4" autoplay loop muted playsinline></video>
+          </div>
+          <div class="project-info">
+            <div class="project-name">SOUND<span class="project-tag">Ambient sound</span></div>
+            <div class="project-desc">Experimenting with ambient sound in VCV rack digital synthesizer. Stock Video in the background.</div>
           </div>
           <span class="project-arrow">↗</span>
         </div>
@@ -1234,9 +1246,15 @@
       },
        generative_visual1: {
         title: 'Generative Visuals',
-        desc: 'A compilation of generative visuals I made in Hydra Video Synth.',
+        desc: 'Experimenting with ambient sound in VCV Rack digital synthesizer. Stock Video in the background.',
         tools: ['Hydra Video Synth', 'Creative Coding', 'Visuals'],
-        videoSrc: 'portfolio_visual.3 (1).mp4'
+        videoSrc: 'ambient (2).mp4'
+      },
+      sound: {
+        title: 'SOUND',
+        desc: 'A compilation of generative visuals I made in Hydra Video Synth.',
+        tools: ['VCV Rack', 'Sound', 'Ambient'],
+        videoSrc: 'ambient (2).mp4'
       },
       generative_visual2: {
         title: 'Generative Visuals',
