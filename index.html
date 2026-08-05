@@ -1003,6 +1003,18 @@
           <span class="project-arrow">↗</span>
         </div>
 
+        <div class="project-item interactive visible" data-category="sound" onclick="openLightbox('thunder')">
+          <div class="project-video-thumb">
+            <video src="thunder_2.mp4" autoplay loop muted playsinline></video>
+          </div>
+          <div class="project-info">
+            <div class="project-name">MIDI Triggered Audio Reactive Visuals<span class="project-tag">Audio Visual</span></div>
+            <div class="project-desc">This project pairs VCV Rack and TouchDesigner to create real-time, key-triggered lightning visuals. Pressing a key on 
+              the keyboard sends MIDI to VCV Rack to synthesize thunder sounds, which are routed into TouchDesigner.</div>
+          </div>
+          <span class="project-arrow">↗</span>
+        </div>
+
         <div class="project-item interactive visible" data-category="generative-visuals" onclick="openLightbox('cat')">
           <div class="project-video-thumb">
             <video src="cat_visual_insta.mp4" autoplay loop muted playsinline></video>
@@ -1236,6 +1248,12 @@
         desc: 'A real-time iridescent bubble shader built in GLSL — simulating the thin-film light interference and translucency of a soap bubble on a 3D sphere.',
         tools: ['TouchDesigner', 'GLSL Shader', '3D Sphere'],
         videoSrc: 'bubble (1) (1).mp4'
+      },
+      thunder: {
+        title: 'MIDI Triggered Audio Reactive Visuals',
+        desc: 'This project pairs VCV Rack and TouchDesigner to create real-time, key-triggered lightning visuals. Pressing a key on the keyboard sends MIDI to VCV Rack to synthesize thunder sounds, which are routed into TouchDesigner.',
+        tools: ['TouchDesigner', 'VCV Rack', 'Audio Reactive'],
+        videoSrc: 'thunder_2.mp4'
       },
       cat: {
         title: 'Pixel Purr',
