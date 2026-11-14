@@ -947,12 +947,12 @@
 
         <li>
           <span class="bullet-dot"></span>
-          <span>I work across both software and hardware using TouchDesigner, Resolume Arena, and After Effects for visuals and interactive systems, alongside ESP32, Arduino, and sensors for physical builds.</span>
+          <span>I just have fun—whether I’m creating stage visuals for various artists, or assisting with and building interactive installations. I love what I do, and as a creative person, I feel it’s important that you just create.</span>
         </li>
 
         <li>
           <span class="bullet-dot"></span>
-          <span>I post a lot cool projects on my instagram so reccomended to check out that</span>
+          <span>I post experimental projects on my instagram so reccomended to check that out</span>
         </li>
         
       </ul>
@@ -973,6 +973,18 @@
       <div class="project-list">
 
         <!-- TouchDesigner Projects — click to open lightbox -->
+
+<div class="project-item interactive visible" data-category="generative-visuals" onclick="openLightbox('priya')">
+          <div class="project-video-thumb">
+            <video src="portfolio.mp4" autoplay loop muted playsinline></video>
+          </div>
+          <div class="project-info">
+            <div class="project-name">Priya Ragu Australia Tour Stage Visuals<span class="project-tag">Stage Visuals</span></div>
+            <div class="project-desc">Priya Ragu is a Tamil-Swiss singer-songwriter, and I designed stage visuals for her Australia tour.</div>
+          </div>
+          <span class="project-arrow">↗</span>
+        </div>
+        
         <div class="project-item interactive visible" data-category="mediapipe" onclick="openLightbox('pulse')">
           <div class="project-video-thumb">
             <video src="Screen Recording 2026-02-09 224646.mp4" autoplay loop muted playsinline></video>
@@ -1146,6 +1158,12 @@
 
     /* ── Lightbox ── */
     const projects = {
+      priya: {
+        title: 'Priya Ragu Australia Tour Stage Visuals',
+        desc: 'Priya Ragu is a Tamil-Swiss singer-songwriter, and I designed stage visuals for her Australia tour.',
+        tools: ['After Efffects', 'Stage Visuals', 'Design'],
+        videoSrc: 'portfolio.mp4'
+      },
       pulse: {
         title: 'Second Skin',
         desc: 'A real-time face-tracked digital mask that merges the human form with a Blender-sculpted geometry, rendered live in TouchDesigner.',
